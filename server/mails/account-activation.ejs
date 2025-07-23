@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Activation</title>
+  <style>
+    :root {
+      --color-primary: #fd8500;
+      --color-primary-light: #ffa033;
+      --color-primary-dark: #d3720b;
+      --color-secondary: #164589;
+      --color-secondary-light: #2a5ca6;
+      --color-secondary-dark: #0e3266;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+      padding: 0;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      margin: 20px;
+    }
+
+    .header {
+      background-color: var(--color-secondary);
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    .logo {
+      max-width: 150px;
+      margin-bottom: 5px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    h1 {
+      color: var(--color-secondary);
+      font-weight: 600;
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .activation-details {
+      background-color: #f7f9fc;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+      border-left: 4px solid var(--color-primary);
+    }
+
+    .activation-details h3 {
+      color: var(--color-secondary-dark);
+      margin-top: 0;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .activation-details p {
+      margin: 12px 0;
+    }
+
+    .highlight {
+      color: var(--color-primary-dark);
+      font-weight: 500;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background-color: rgba(22, 166, 44, 0.1);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #16a62c;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: var(--color-primary-dark);
+    }
+
+    .support-link {
+      color: var(--color-secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .support-link:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #eee;
+      background-color: #fafafa;
+    }
+
+    .thank-you {
+      font-size: 17px;
+      margin-top: 25px;
+      color: var(--color-secondary-dark);
+    }
+
+    @media only screen and (max-width: 480px) {
+      .container {
+        margin: 10px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .button {
+        display: block;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="<%= logoUrl %>" alt="<%= appName %> Logo" class="logo">
+    </div>
+    <div class="content">
+      <h1>Account Activation Confirmation</h1>
+      <p>Hello <%= user.firstName %>,</p>
+      <p>Great news! Your <%= appName %> account has been <span class="status-badge">activated</span> and is now ready
+          for use.</p>
+      <div class="activation-details">
+        <h3>Account Details:</h3>
+        <p><strong>Account Status:</strong> <span class="highlight">Active</span></p>
+        <p><strong>Services Start Date:</strong> <span class="highlight">
+            <%= accountDetails.startDate %>
+          </span></p>
+        <p>You now have full access to all platform features and services. Any subscriptions associated with your
+          account have been scheduled to begin on the start date mentioned above.</p>
+      </div>
+      <p>To access your dashboard and manage your subscriptions:</p>
+      <p><a href="<%= dashboardUrl %>" class="button">Access Dashboard</a></p>
+      <p>If you have any questions or need assistance, please contact our support team at <a
+          href="mailto:<%= supportEmail %>" class="support-link">
+          <%= supportEmail %>
+        </a>.</p>
+      <p class="thank-you">Thank you for choosing <%= appName %>!</p>
+      <p>Best regards,<br>The <%= appName %> Team</p>
+    </div>
+    <div class="footer">
+      <p>&copy; <%= new Date().getFullYear() %>
+          <%= appName %>. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+
+</html>
