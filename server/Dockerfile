@@ -15,8 +15,7 @@ COPY tsconfig.json ./
 COPY src ./src
 
 # Compile TypeScript
-RUN yarn build
+RUN npx tsc
 
 # Start the app
 CMD ["node", "dist/server.js"]
-
