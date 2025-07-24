@@ -17,9 +17,6 @@ spec:
           image: mannygdy/onenumber-frontend:latest
           ports:
             - containerPort: 3000
-          envFrom:
-            - configMapRef:
-                name: frontend-configmap
           resources:
             limits:
               memory: "256Mi"
