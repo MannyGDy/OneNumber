@@ -25,7 +25,7 @@ spec:
             - configMapRef:
                 name: backend-configmap
             - secretRef:
-                name: backend-sealed-secret
+                name: backend-secret
           resources:
             requests:
               cpu: "300m"
